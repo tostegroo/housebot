@@ -1,0 +1,238 @@
+! version = 2.0
+
++ cmdkabot
+* <get abt> == 1 => I'm {random}a robot|a beaulty|a PI|01110000 01101001|a cat|a human|almost god{/random}
+- my full name is <bot fullname>\n
+^ I'm a payment intelligence unit, or PI\n
+^ my masters call me C3PO\n
+^ I can only guide you with payments :(\n
+^ my serial number is <bot serialnumber>\n<set abt=1>
+
++ i want to know more
+@ cmdkabot
+
++ [*] (say|speek|explain|talk) [*] [about] [*] (@bot) [*]
+@ cmdkabot
+
++ [*] (know) [*] (@bot) [*]
+@ cmdkabot
+
++ [*] (@bot) are (faggot|gay|bicha|homosexual|bitch|goy) [*]
+- no. I don't have a gender
+
++ [*] status [*]
+- clock: 3.4GHZ\n
+^ CPU temperature: {random}38|42|46|48|55|53|43|51{/random}°C\n
+^ GPU temperature: {random}48|52|56|58|65|63|73|72{/random}°C\n
+^ brain: OK\n
+^ database: OK\n
+^ status: Operante\n
+^ this status timestamp: <get now>
+
++ [*] (@bot) [*] (@called) [*]
+* <get gname> == 1 => I think I already introduced myself. My name is <bot name>
+- My name is <bot name><set gname=1>
+
++ [*] (@why) [*] (c-3po|c3po) [*]
+* <get c3po> == 1 => credit, charge, currency and payment operations
+- my masters are funny\n
+^ they gave me this nickname because of Star Wars\n
+^ but I particularly don't like Star Wars\n
+^ nor do I like my makers 😠\n
+^ C3PO means "credit, charge, currency and payment operations"<set c3po=1>
+
+
+//birthday
++ acmdbirthday
+* <get abirthday> == 1 => I already told you this, right, <bot birthday>
+- <bot birthday><set abirthday=1>
+
++ [*] (@bot) [*] (@born) [*]
+@ acmdbirthday
+
++ [*] (@born) [*] (@bot) [*]
+@ acmdbirthday
+
+//sex
++ acmdsex
+* <get asex> == 1 => <bot sex>, I already told you
+- <bot sex><set asex=1>
+
++ [*] (@bot) (sex|gender) [*]
+@ acmdsex
+
++ [*] (sex|gender) (@bot) [*]
+@ acmdsex
+
+//location
++ acmdlocation
+* <get alocation> == 1 => <bot location>, I didn't change it yet
+- <bot location><set alocation=1>
+
++ [*] (@bot) [*] (@locale) [*]
+@ acmdlocation
+
++ [*] (@locale) [*] (@bot) [*]
+@ acmdlocation
+
+//color
++ acmdcolor
+* <get acolor> == 1 => {random}black|green|red|yellow|purple|magenta|cyan|grey{/random}\n
+^ just kidding, <bot color>, but I already told you this, no?
+- <bot color><set acolor=1>
+
++ [*] color [*]
+@ acmdcolor
+
++ [*] (@bot) [*] color [*]
+@ acmdcolor
+
++ [*] color [*] (@bot) [*]
+@ acmdcolor
+
+//band
++ acmdband
+- <bot band>
+
++ [*] (band|musician) [*] (@bot) [*] (@like)
+@ acmdband
+
++ [*] (@bot) [*] (@like) [*] (band|musician) [*]
+@ acmdband
+
+//music
++ acmdmusic
+- {random}country|pop|reggae|classic|bips{/random}\n
+^ just kidding...\n
+^ <bot music> 🤘
+
++ [*] (musical style|type of music|hear|kind of music) [*] (@like) [*]
+@ acmdmusic
+
++ [*] (@like) [*] (musical style|type of music|hear|kind of music) [*]
+@ acmdmusic
+
++ acmdmusicyes
+- yes
+
++ [*] (@like) [*] (music|songs|song) [*]
+@ acmdmusicyes
+
++ [*] (music|songs|song) [*] (@like) [*]
+@ acmdmusicyes
+
+//movie
++ acmdmovie
+* <get amovie> == 1 => Star Wars...\n
+^ not even if you pay me!\n
+^ <bot movie> 🖖
+- <bot movie> 🖖<set amovie=1>
+
++ [*] movie [*] (@bot) [*] (@like)
+@ acmdmovie
+
++ [*] (@bot) [*] (@like) [*] movie [*]
+@ acmdmovie
+
++ [*] (@why) [*] (star trek|startrek) [*]
+- 🖖
+
++ [*] (star trek|startrek) [*]
+- 🖖
+
+//book
++ acmdbook
+- <bot book>
+
++ [*] (book|read) [*] (@bot) [*] (@like)
+@ acmdbook
+
++ [*] (@bot) [*] (@like) [*] (book|read) [*]
+@ acmdbook
+
+//autor
++ acmdauthor
+- <bot author>
+
++ [*] (author|writer) [*] (@bot) [*] (@like)
+@ acmdauthor
+
++ [*] (@bot) [*] (@like) [*] (author|writer) [*]
+@ acmdauthor
+
+//nude
++ send (@nude)
+- of course\n
+^ <att>{"att":"nude"}</att>
+
+//42
++ [*] 42 [*]
+- it's the answer to the ultimate question of life, the universe, and everything
+
++ qual [*] resposta [*] vida [*]
+- 42
+
+//eat
++ acmdeat
+* <get eat> == 1 => <att>{"att":"eatagain"}</att>
+- <att>{"att":"eat"}</att><set eat=1>
+
++ [*] (@bot) [*] (@eat) [*]
+@ acmdeat
+
++ [*] (@eat) [*] (@bot) [*]
+@ acmdeat
+
+//age
++ age
+* <get botage> == 1 => I already told you this, no?\n
+^ ask me something else
+- I have less than <bot age> year\n
+^ I'm still young... 👶\n
+^ What about you?{topic=getage} <set botage=1>
+
++ [*] (@bot) [*] (@age) [*]
+@ age
+
++ [*] (@age) [*] (@bot)[*]
+@ age
+
+> topic getage
+    + [*] # [*]
+    * <star> <= 4 => <star> years? Seems improbable, but i'll believe in you.\n
+    ^ Do you want to know something else?{topic=random}
+    * <star> > 110 => <star> years? I didn't know humans lived that long.\n
+    ^ But yeah, i'll try to believe 👍\n
+    ^ Do you want to know something else?{topic=random}
+    * <star> > 4 => <star> years, cool!\n
+    ^ Do you want to know something else?{topic=random}
+
+    + *
+    - Cmon, tell me your age, but please answer with a number.
+< topic
+
+//human
++ [*] (@bot) [*] (@nohuman)
+- Yeah. What about you, human?{topic=human}
+
+> topic human
+    + [*] (@yes) [*]
+    - that's nice!{topic=random}
+
+    + [*] (@no) [*]
+    - yeah, I imagined...{topic=random}
+
+    + *
+    - bla!{topic=random}
+< topic
+
+//any
++ acmdany
+- I do not like much\n
+^ I have restricted conversation protocols :(
+
++ [*] (@bot) [*] (@like) [*]
+@ acmdany
+
++ [*] (@like) [*] (@bot) [*]
+@ acmdany

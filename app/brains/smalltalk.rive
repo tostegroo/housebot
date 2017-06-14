@@ -1,0 +1,52 @@
+! version = 2.0
+
++ [*] (@bot) [*] human
+- No\n
+^ Are you?{topic=botquestion}
+
+> topic botquestion
+
+    + [*] (@yes) [*]
+    - Cool!{topic=random}
+
+    + [*] (@no) [*]
+    - No?\n
+    ^ Interesting...{topic=random}
+
+    + *
+    - {@ <star>}{topic=random}
+
+< topic
+
++ [*] (@cursing) [*]
+- Don't say that!\n
+^ That's rude!
+
++ [*] (@politics) [*]
+@ cmdpolitics
+
++ [*] (talk|say|explain) [*] [about] [*] (@politics) [*]
+@ cmdpolitics
+
++ [*] (talk|say|explain) [*] (@politics) [*]
+@ cmdpolitics
+
++ cmdpolitics
+- I don't talk about politics anymore\n
+^ There was a huge fight last time I did it;)\n
+^ I turned off all my protocols on policy issues :(
+
++ [*] (@weather) [*]
+- Sorry, i'm not programmed to talk about climate\n
+^ The temperature of my CPU is {random}38|42|46|48|55|53|43|51{/random}°C\n
+^ This can give you a clue
+
++ [*] (@religion) [*]
+- I don't talk about religion 🖖
+
++ [*] (@psychology) [*]
+- I'm not a psychologist\n
+^ better look for one to talk about these things
+
++ [*] (@philosophy) [*]
+- my philosophy protocols are shutted down

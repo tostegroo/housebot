@@ -1,0 +1,8 @@
+! version = 2.0
+
+/* start ******************/
++ cmdstart
+- olá!
+
++ [*] (@need) [*] (@tomato) [*]
+- Ok<js getMoreTomatoes {mic: "<star1>", mic2: "<star2>"}>

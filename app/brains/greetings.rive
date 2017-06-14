@@ -1,0 +1,22 @@
+! version = 2.0
+
+//comando caso o user diga oi/olá
++ [*] (@greeting) [*]
+* <get greeting> > 1 => Hi!\n
+^ How are you?{topic=greeting}
+- How are you?{topic=greeting}
+
+//comando de cumprimento (onde o bot pergunta se está tudo bem)
+> topic greeting
+
+    + [*] (@allright) [*]
+    - That's good!\n
+    ^ I'm good too, do you need something?
+
+    + [*] (@noallright) [*]
+    - that's a shame! :(
+
+    + *
+    - {@ <star>}{topic=random}
+
+< topic

@@ -1,0 +1,46 @@
+! version = 2.0
+
+> topic action
+
+    + cmdgotorandom
+    - <nrsp>{topic=random}
+
+    + cmdr#
+    - {@ <get cmdr><star>}{topic=random}
+
+    + *
+    * <get actionrepeat> == 1 => I told you, I can chat now\n
+    ^ {@ <get lastcommand>}<set actionrepeat=1>{topic=random}
+    - I have no time to smalltalk\n
+    ^ What are we doing?\n
+    ^ {@ <get lastcommand>}<set actionrepeat=1>{topic=random}
+
+< topic
+
+> topic busy
+
+    + cmdgotorandom
+    - <nrsp>{topic=random}
+
+    + cmdendbusy
+    - {@ <get cmdendbusy>}<set cmdendbusy=undefined><set busyrepeat=undefined>{topic=random}
+
+    + *
+    * <get busyrepeat> == 1 => I'm busy, I told you.
+    - I'm busy now\n
+    ^ I come back to you soon<set busyrepeat=1>
+
+< topic
+
+> topic noreply
+
+    + cmdgotorandom
+    - <nrsp>{topic=random}
+
+    + cmdendnoreply
+    - {@ <get cmdendnoreply>}<set cmdendnoreply=undefined>{topic=random}
+
+    + *
+    - <nrsp>
+
+< topic

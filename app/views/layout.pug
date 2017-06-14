@@ -1,0 +1,24 @@
+doctype html
+html
+	head
+		include ./common/metas.pug
+		base(href=environment.ROOT_PATH+'/')
+		link(rel='stylesheet' href=environment.STATIC_PATH+'/css/style.css')
+		script.
+			var root_path = "#{environment.ROOT_PATH}";
+			var static_path = "#{environment.STATIC_PATH}";
+	body(itemscope itemtype='http://schema.org/WebSite')
+		meta(description='' content='')
+		meta(itemprop='image' content='')
+		span(itemprop='about' itemscope itemtype='http://schema.org/Brand')
+			meta(itemprop='name' content='')
+			meta(itemprop='description' content='')
+		meta(itemprop='logo' content='')
+		main(id='main')
+			block main
+				include ./common/header.pug
+				div(id='page-loader-container' class='page-loader-container')
+					div(class='loader')
+				section(class='content-window' id='home-content')
+					block body
+		include ./common/footer.pug
