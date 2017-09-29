@@ -1,6 +1,7 @@
-var promise 		= require('bluebird');
+var promise = require('bluebird');
 var Speech = require('@google-cloud/speech');
 var record = require('node-record-lpcm16');
+var fs = require('fs');
 
 var speech = Speech(
 {
@@ -96,38 +97,38 @@ Voicectl.prototype.getTextFromAudioFileStream = function(recordTime, filePath)
 {
 	return new promise(function(resolve, reject)
 	{
-		record.start(
-	    {
-	    	sampleRateHertz: 16000,
-	    	verbose: true,
-	    	recordProgram: 'sox',
-	    	file: filePath
-	    })
-	    .on('error', function(error){console.log(error);});
+		var file = fs.createWriteStream(filePath, { encoding: 'binary' });
+
+		record.start({
+    	sampleRateHertz: 16000,
+    	verbose: true,
+    	recordProgram: 'rec',
+    	file: filePath
+    }).pipe(file);
+		//.on('error', function(error){console.log(error);});
 
 		fileRecordingPath = filePath;
 		if(recordTime>0)
 		{
-		    setTimeout(function ()
-		    {
-				if(record)
-		    		record.stop();
+			setTimeout(function ()
+		  {
+				if(record) record.stop();
 
-		    	speech.recognize(fileRecordingPath, options)
-		    	.then((results) =>
-		    	{
-		            var text = results[0];
-		            sendMessageTobot(text)
-					.then(function(response)
-				    {
+		    speech.recognize(fileRecordingPath, options)
+		    .then((results) => {
+
+		    	var text = results[0];
+
+		     	sendMessageTobot(text)
+					.then(function(response){
 						resolve({status: true, text: text, data:response});
 					});
 
-		            console.log('Transcription: ' + text);
-		    	})
-		    	.catch((err) => {console.error('ERROR:', err);});
+		      console.log('Transcription: ' + text);
+		    })
+		    .catch((err) => {console.error('ERROR:', err);});
 
-		    }, recordTime);
+			}, recordTime);
 		}
 		else
 		{
@@ -187,7 +188,7 @@ function sendMessageTobot(text)
 		    .then(function(response)
 		    {
 				resolve(response.reply);
-				
+
 		        console.log(response.reply);
 		    });
 		}

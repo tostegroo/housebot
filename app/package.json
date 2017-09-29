@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@google-cloud/speech": "^0.9.3",
+    "apiai": "^4.0.3",
     "bluebird": "^3.4.1",
     "body-parser": "~1.15.1",
     "connect-flash": "^0.1.1",
@@ -19,8 +20,8 @@
     "fs": "0.0.2",
     "json-bigint": "^0.2.0",
     "morgan": "~1.7.0",
-    "pug": "^2.0.0-alpha7",
     "node-record-lpcm16": "^0.3.0",
+    "pug": "^2.0.0-alpha7",
     "request": "^2.74.0",
     "rivescript-nginb-js": "^0.1.0",
     "safe-eval": "^0.3.0",

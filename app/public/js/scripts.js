@@ -18063,7 +18063,7 @@ jQuery.fn.sortElements = (function()
         $.ajax(
         {
             url: url,
-            data: {filePath: 'C:/house-bot/app/files/audio.wav'},
+            data: {filePath: '/Users/tostegroo/Sites/housebot/app/files/audio.wav'},
             type: 'POST',
             success: function(data)
             {

@@ -16,7 +16,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.environment = environment;
+/*app.environment = environment;
 app.bot = bot(
 {
 	env: 'dev',
@@ -45,7 +45,7 @@ app.bot = bot(
 
 app.voiceController = require('./controllers/voicectl.js')(app.bot);
 //app.voiceController.getTextFromAudioFileStream(6000, 'C:/house-bot/files/audio.wav');
-//app.voiceController.getTextFromAudioStream(10000);
+//app.voiceController.getTextFromAudioStream(10000);*/
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -82,6 +82,33 @@ app.use(flash());
 //Routes
 require('./routes/index')(app);
 require('./routes/facebook')(app);
+
+var apiai = require('apiai');
+var apiaiapp = apiai("891246bc376c4d5491f595e60e8723ca");
+
+var request = apiaiapp.textRequest('teste', 
+{
+	sessionId: '12',
+	contexts: [
+        {
+            name: 'global',
+            parameters: {
+				'name': 'Fabio Lindo',
+				'cidade': 'SBC',
+				'vida': 'opa'
+			},
+			lifespan: 1
+        }
+    ]
+});
+request.on('response', function(response) {
+    console.log(JSON.stringify(response));
+});
+
+request.on('error', function(error) {
+    console.log(error);
+});
+request.end();
 
 //Pos Routes
 app.use(function(req, res, next)

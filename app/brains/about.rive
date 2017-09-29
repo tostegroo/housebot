@@ -163,7 +163,7 @@
 //nude
 + send (@nude)
 - of course\n
-^ <att>{"att":"nude"}</att>
+^ <att {"att":"nude"}>
 
 //42
 + [*] 42 [*]
@@ -174,8 +174,8 @@
 
 //eat
 + acmdeat
-* <get eat> == 1 => <att>{"att":"eatagain"}</att>
-- <att>{"att":"eat"}</att><set eat=1>
+* <get eat> == 1 => <att {"att":"eatagain"}>
+- <att {"att":"eat"}><set eat=1>
 
 + [*] (@bot) [*] (@eat) [*]
 @ acmdeat
